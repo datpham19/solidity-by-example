@@ -40,3 +40,29 @@ contract Enum {
         delete status;
     }
 }
+
+contract AdvanceEnum {
+
+    enum ActionChoices {GoLeft, GoRight, GoStraight, SitStill}
+    enum Choice {A, B, C}
+
+    struct MapCoordinates {
+        int8 latitude;
+        int16 longitude;
+    }
+
+    struct Point {
+        int8 latitude;
+        int16 longitude;
+    }
+
+    MapCoordinates public point;
+    string name;
+    enum Location {
+        Unknown,
+        NorthPole,
+        SouthPole,
+        point,
+        NamedLocation
+    }
+}
