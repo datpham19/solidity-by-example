@@ -1,0 +1,7 @@
+Keccak is nice that it has arbitrary inputs and an infinite input space. This enables one to "make a hash" of a super large file where each input causes the internal state to scramble up some more. The hash should entirely change if a single bit of data in the source is different - unlike say a CRC32, or a checksum. It means your password could be a million chars long maybe. It's stored on disk as a hash, much smaller in size.
+
+Regarding Keccak, it uses a "Sponge Construction" lord knows what that is read up on it here: https://keccak.team/keccak_specs_summary.html If I understand it's a permutation chosen from a set of seven Keccak permutations, denoted I assume by reference to their bit depths as b∈{25,50,100,200,400,800,1600}.
+
+The state is organized as an array of 5×5 lanes, each of length w∈{1,2,4,8,16,32,64} and 25 cells deep. When implemented on a 64-bit processor, a lane of Keccak can be represented as a tidy 64-bit CPU word.
+
+Finally, to even entertain the thought of similar input causing collisions, you have to imagine this data traversing from base 25, through base 50, up to 1600 and back. Smart money is on this being quite very resistant to collisions (it's design goal?).

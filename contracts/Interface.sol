@@ -12,6 +12,8 @@ Interface
     - cannot declare state variables
 */
 
+/*
+
 contract Counter {
     uint public count;
 
@@ -62,3 +64,4 @@ contract UniswapExample {
         return (reserve0, reserve1);
     }
 }
+*/
